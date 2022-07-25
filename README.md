@@ -1,4 +1,6 @@
 # UPTASK_MVC
+Proyecto basado en Trello, permite crear proyecto y añadirle tareas, incluir participantes a los proyectos. Ideal para trabajo colaborativo y metodologías ágiles, para plasmar los avances de las actividades, no es tan completo como una aplicación web de gestión de proyectos, sin embargo, es un gran desarrollo para el inicio de mi carrera como desarrollador web. 
+
 Proyecto MVC con PHP8, Sass, JS, MySQL, Gulp, Node, JQuery, Sweetalert2, PHPMailer, etc.
 
 ![image](https://user-images.githubusercontent.com/83409584/180817226-be6f69e7-8131-41de-93f9-dd98a8877f21.png)
