@@ -64,6 +64,8 @@ class DashboardController {
     }
 
     public static function Guardar (){
+        isSession();
+        isAuth();
         $proyecto = new Proyecto($_POST); //Revise los datos que se envian por Fetch API
         $proyecto->url = md5(uniqid());//Generar una URL única   
         
@@ -174,6 +176,8 @@ class DashboardController {
     }
 
     public static function Añadir () {
+        isSession();
+        isAuth();
         //$usuario = new Usuario($_POST); //Revise los datos que se envian por Fetch API
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $usuario = new Usuario($_POST);
@@ -194,7 +198,7 @@ class DashboardController {
             }
 
             //Validar que el usuario no sea el propietario
-            if($proyecto->propietario === $_SESSION['codigousuario']){
+            if($proyecto->propietario === $resultado->codigousuario){
                 echo json_encode($args = ['propietario' => true]);
                 return;
             }
@@ -202,6 +206,59 @@ class DashboardController {
             if($resultado) {
                 $respuesta = $usuario->Incluir($proyecto->codigoproyecto, $resultado->codigousuario, $grupo);
                 echo json_encode($respuesta);
+            }
+        }
+    }
+
+    public static function Participantes () {
+        isSession();
+        isAuth();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $usuario = new Usuario();
+            $proyecto = Proyecto::ConsultaParametro('url', $_POST['url']);
+            $grupo = explode(",", $proyecto->grupo);
+            $respuesta = $usuario->listaParticipantes($grupo);
+            echo json_encode($respuesta, JSON_PRETTY_PRINT);
+        }
+    }
+
+    public static function EliminarParticipante () {
+        isSession();
+        isAuth();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $usuario = new Usuario();
+            $proyecto = Proyecto::ConsultaParametro('url', $_POST['url']);
+            if($proyecto){
+                $grupo = explode(",", $proyecto->grupo); //Convierto string en array
+                $grupo = array_diff($grupo, array($_POST['participante'])); //Del array elimino el codigo del participante
+                $grupo = implode(",", $grupo); //Convierto nuevamente a string 
+                if($grupo === "") $grupo = 0;
+
+                //Guardo string
+                $respuesta = $usuario->Excluir($grupo, $proyecto->codigoproyecto);
+                if($respuesta) {
+                    echo json_encode($respuesta, JSON_PRETTY_PRINT);
+                }
+            }
+            // $grupo = explode(",", $proyecto->grupo);
+            // $respuesta = $usuario->listaParticipantes($grupo);
+           
+        }
+    }
+
+    public static function EliminarProyecto () {
+        isSession();
+        isAuth();
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            // $proyecto = new Proyecto($_POST);
+            // $proyecto = Proyecto::ConsultaParametro('url', $_POST['url']);
+            $proyecto = Proyecto::where('url', $_POST['url']);
+            if($proyecto || $proyecto->propietario === $_SESSION['codigousuario']) {
+                $resultado = $proyecto->eliminarProyecto($proyecto->codigoproyecto);
+                if($resultado){
+                    echo json_encode($resultado);
+                }
+                return;
             }
         }
     }

@@ -199,4 +199,18 @@ class Usuario extends ActiveRecord {
         $resultado = $this->ActualizarTabla($query);
         return $resultado;
     }
+
+    public function Excluir ($grupo, $proyecto) {
+        $query = "UPDATE proyectos SET grupo = '" . $grupo . "' WHERE codigoproyecto = '" . $proyecto . "'";
+        $resultado = $this->ActualizarTabla($query);
+        return $resultado;
+    }
+
+    public function listaParticipantes ($grupo) {
+        $stringgrupo = implode(",", $grupo);//Convierto el array en string
+        $query = "SELECT codigousuario, nombre, email FROM usuarios WHERE codigousuario in($stringgrupo)";
+
+        $resultado = $this->SQL2($query);
+        return $resultado;
+    }
 }

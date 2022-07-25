@@ -10,13 +10,31 @@
             $findme = '/proyecto?';
             $pos = strpos($uri , $findme);
             if($pos === 0 && $proyecto->propietario === $_SESSION['codigousuario']){ ?>
+
+            <div class="contenedor-svg-info contenedor-svg-info__giro" id="eliminar-proyecto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#42526E" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <title>Eliminar Proyecto</title>
+                </svg>
+            </div><!-- icono eliminar proyecto -->
+
+            <div class="contenedor-svg-info contenedor-svg-info__equipo" id="eliminar-equipo">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" viewBox="0 0 24 24" stroke="#42526E" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle class="circle" cx="9" cy="7" r="4" />
+                    <path class="cbody" d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    <path class="plus" d="M17 10h4" />
+                    <title>Eliminar Participante</title>
+                </svg>
+            </div><!-- icono eliminar usuario -->
+
             <div class="contenedor-svg-info contenedor-svg-info__equipo" id="equipo">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" viewBox="0 0 24 24" stroke="#42526E" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <circle class="circle" cx="9" cy="7" r="4" />
                     <path class="cbody" d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                     <path class="plus" d="M16 11h6m-3 -3v6" />
-                    <title>Agregar al equipo</title>
+                    <title>Agregar Participante</title>
                 </svg>
             </div><!-- icono agregar usuario -->
 
@@ -29,15 +47,15 @@
                     <path class="path4" d="M13 19h5" />
                     <rect class="rect1" x="3" y="4" width="6" height="6" rx="1" />
                     <rect class="rect2" x="3" y="14" width="6" height="6" rx="1" />
-                    <title>Crear tarea</title>
+                    <title>Añadir Tarea</title>
                 </svg>
-            </div><!-- icono crear tarea -->
+            </div><!-- icono añadir tarea -->
         <?php } ?> 
 
         <div class="contenedor-svg">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 crear-proyecto" fill="none" viewBox="0 0 24 24" stroke="#42526E" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-                <title>Crear proyecto</title>
+                <title>Crear Proyecto</title>
             </svg>
         </div><!-- icono crear proyecto -->
 

@@ -210,6 +210,17 @@ class ActiveRecord {
         return $array;
     }
 
+    public static function SQL2 ($query) {
+        $resultado = self::$db->query($query);
+        $array = [];
+        
+        while($registro = $resultado->fetch_assoc()) {
+            $array[] = $registro;
+        }
+
+        return $array;
+    }
+
     public static function ConsultaParametro(string $campo, $valor){
         $query = "SELECT * FROM " . static::$tabla. " WHERE $campo = '{$valor}'";
         $resultado = self::$db->query($query);

@@ -8,7 +8,7 @@ use Model\Proyecto;
 class TareaController {
     public static function index () {
         isSession();
-        // isAuth();
+        isAuth();
         $url = $_GET['id'];
         if(!$url) header('Location: /dashboard');
 
@@ -34,7 +34,7 @@ class TareaController {
     public static function crear(){
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             isSession();
-            // isAuth();
+            isAuth();
 
             $proyecto = Proyecto::where('url', $_POST['proyecto']);
             if(!$proyecto || $proyecto->propietario !== $_SESSION['codigousuario']) {
@@ -66,6 +66,7 @@ class TareaController {
     public static function actualizar (){
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             isSession();
+            isAuth();
             $proyecto = Proyecto::where('url', $_POST['url']);
 
             if(!$proyecto || $proyecto->propietario !== $_SESSION['codigousuario']) {
@@ -98,6 +99,7 @@ class TareaController {
     public static function eliminar(){
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             isSession();
+            isAuth();
             $proyecto = Proyecto::where('url', $_POST['url']);
 
             if(!$proyecto || $proyecto->propietario !== $_SESSION['codigousuario']) {

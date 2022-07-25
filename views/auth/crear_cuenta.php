@@ -51,7 +51,7 @@
                     <input type="password" id="contraseña" name="password" placeholder="Contraseña" autocomplete="off" required>
                     <label for="password" class="label">Contraseña</label>
                 </div>
-                <label class="check" onclick="myFunction()" for="vercontraseña"><img id="control" src="" alt="imagen login"></label>
+                <label class="check vercontraseña"><img id="control" src="" alt="ver contraseña"></label>
             </div>
 
             <div class="contenedor-ver">
@@ -59,7 +59,7 @@
                     <input type="password" id="contraseña2" name="password2" placeholder="Contraseña2" autocomplete="off" required>
                     <label for="password2" class="label">Repetir contraseña</label>
                 </div>
-                <label class="check" onclick="myFunction2()" for="vercontraseña"><img id="control2" src="" alt="imagen login"></label>
+                <label class="check vercontraseña2"><img id="control2" src="" alt="ver contraseña"></label>
             </div>
             <input type="submit" value="Crear Cuenta" class="boton">
         </form>

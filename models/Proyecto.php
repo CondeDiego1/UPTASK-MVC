@@ -33,5 +33,12 @@ class Proyecto extends ActiveRecord {
 
         return self::$alertas;
     }
+
+    public function eliminarProyecto($codigoproyecto){
+        $query = "DELETE FROM " . static::$tabla . " WHERE codigoproyecto = '" . $codigoproyecto . "' LIMIT 1";
+        $resultado = $this->Eliminar($query);
+
+        return $resultado;
+    }
 }
 

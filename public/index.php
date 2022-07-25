@@ -38,11 +38,11 @@ $router->get('/perfil',[DashboardController::class, 'Perfil']);
 $router->post('/perfil',[DashboardController::class, 'Perfil']);
 $router->get('/proyecto', [DashboardController::class,'Proyecto']);
 $router->get('/participante', [DashboardController::class,'Participante']);
-
-//---------------------------------- FETCH API ----------------------------------
-//Dashboard
 $router->post('/crear_proyectos/popup', [DashboardController::class,'Guardar']);
 $router->post('/incluir', [DashboardController::class,'Añadir']);
+$router->post('/participantes', [DashboardController::class,'Participantes']);
+$router->post('/eliminar/participante', [DashboardController::class,'EliminarParticipante']);
+$router->post('/api/proyecto/eliminar', [DashboardController::class,'EliminarProyecto']);
 
 //Tareas
 $router->get('/api/tareas', [TareaController::class,'index']);
