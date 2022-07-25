@@ -30,3 +30,5 @@ Tecnologías que utiza :
 - Google Fonts
 - Imagenes de recusros gratuitos
 - MySQL
+
+Autor: Diego Alejandro Conde López
