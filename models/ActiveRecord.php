@@ -242,7 +242,7 @@ class ActiveRecord {
     }
 
     public static function Participante ($columna, $valor) {
-        $query = "SELECT * FROM " . static::$tabla . " WHERE ${columna} like '%${valor}%'";
+        $query = "SELECT * FROM " . static::$tabla . " WHERE ${columna} in ('${valor}')";
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
