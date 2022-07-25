@@ -69,8 +69,10 @@ class LoginController{
                     
                     if($usuario->Insertar()){
                         $email = new Email($usuario->email, $usuario->nombre, $usuario->token); //Enviar email
-                        $email->Enviar_Confirmacion();
-                        header('Location: /mensaje_confirmacion_cuenta');
+                        $resultado = $email->Enviar_Confirmacion();
+                        if($resultado){
+                            header('Location: /mensaje_confirmacion_cuenta');
+                        }
                     }
                 }
             }
