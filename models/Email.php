@@ -50,7 +50,7 @@ class Email{
                 <h1 style='text-align: center; color: #4338CA; font-size: calc(3.5em + 1vh); margin: 2rem 0;'>UpTask</h1>
                 <h2 font-size='25px' font-weight='500' line-height='25px' style='color: #4338CA;'>¡Gracias por registrarte!</h2>
                 <p style='line-height:18px; font-size: calc(.5em + 1vh);'>Por favor confirma tu correo electrónico para que puedas comenzar a disfrutar de UpTask</p>
-                <a style='position: relative; z-index: 0; display: inline-block; margin: 0;' href='http://localhost:4000/confirmar_cuenta?token=" . $this->token . "'>
+                <a style='position: relative; z-index: 0; display: inline-block; margin: 0;' href='https://uptask-co.herokuapp.com/confirmar_cuenta?token=" . $this->token . "'>
                     <button style='padding: 10px 20px; font-size: 16px; font-weight: 500; background-color: #4338CA; color: #ffffff; border: none; text-transform: uppercase; cursor: pointer;'>Verificar</button>
                 </a>
                 <p style='line-height:18px; font-size: calc(.5em + 1vh);'>Si tú no te registraste en UpTask, por favor ignora este correo electrónico.</p>
@@ -99,10 +99,10 @@ class Email{
             <h1 style='text-align: center; color: #4338CA; font-size: calc(3.5em + 1vh); margin: 2rem 0;''>UpTask</h1>
             <h2 font-size='25px' font-weight='500' line-height='25px' style='color: #4338CA;''>¡Hola, ". $this->nombre ."!</h2>
             <p style='line-height:18px; font-size: calc(.5em + 1vh);'>Recientemente has solicitado restablecer tu contraseña, por favor sigue el proceso como se te indica. En caso de que no hayas sido tu quien solicito reestablecer, por favor haz caso omiso a este mensaje</p>
-            <a style='position: relative; z-index: 0; display: inline-block; margin: 0;' href='http://localhost:4000/crear_password?token=" . $this->token . "'>
+            <a style='position: relative; z-index: 0; display: inline-block; margin: 0;' href='https://uptask-co.herokuapp.com/crear_password?token=" . $this->token . "'>
                 <button style='padding: 10px 20px; font-size: 16px; font-weight: 500; background-color: #4338CA; color: #ffffff; border: none; text-transform: uppercase; cursor: pointer;'>Cambiar contraseña</button>
             </a>
-            <p style='line-height:18px; font-size: calc(.5em + 1vh);'>Si el boton de cambiar contraseña no funciona por favor copia y pega el siguiente enlace en tu navegador http://localhost:4000/crear_password?token=" . $this->token . "</p>
+            <p style='line-height:18px; font-size: calc(.5em + 1vh);'>Si el boton de cambiar contraseña no funciona por favor copia y pega el siguiente enlace en tu navegador https://uptask-co.herokuapp.com/crear_password?token=" . $this->token . "</p>
             <div>
                 <p style='border-bottom: 1px solid #4338CA; border-top: none; margin-top: 25px;'></p>
             </div>
